@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShowImagesViewController" customModule="AccTest" customModuleProvider="target">
+            <connections>
+                <outlet property="displayLine" destination="fRg-2U-AYc" id="EEh-4N-xjA"/>
+                <outlet property="imageView" destination="OPD-GH-ANO" id="S3h-Hd-T7J"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OPD-GH-ANO"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fRg-2U-AYc" customClass="DisplayImageView" customModule="AccTest" customModuleProvider="target">
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WqO-pL-23m">
+                            <constraints>
+                                <constraint firstAttribute="width" constant="46" id="sEE-5N-e30"/>
+                            </constraints>
+                            <state key="normal" title="OK"/>
+                            <connections>
+                                <action selector="OKClick:" destination="-1" eventType="touchUpInside" id="X8U-OA-XAI"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="WqO-pL-23m" secondAttribute="bottom" constant="78" id="DC7-Sg-qYN"/>
+                        <constraint firstItem="WqO-pL-23m" firstAttribute="centerX" secondItem="fRg-2U-AYc" secondAttribute="centerX" id="qec-ns-Vlo"/>
+                    </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="x4f-lT-7oE" appends="YES" id="jcH-qR-88R"/>
+                    </connections>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="OPD-GH-ANO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="022-wK-Qy2"/>
+                <constraint firstItem="fRg-2U-AYc" firstAttribute="bottom" secondItem="OPD-GH-ANO" secondAttribute="bottom" id="3bY-Ff-E7W"/>
+                <constraint firstAttribute="trailing" secondItem="OPD-GH-ANO" secondAttribute="trailing" id="5Bq-1G-Hhq"/>
+                <constraint firstItem="fRg-2U-AYc" firstAttribute="trailing" secondItem="OPD-GH-ANO" secondAttribute="trailing" id="9n5-iZ-fhk"/>
+                <constraint firstItem="OPD-GH-ANO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="AoW-2U-HMe"/>
+                <constraint firstItem="fRg-2U-AYc" firstAttribute="top" secondItem="OPD-GH-ANO" secondAttribute="top" id="HRN-yx-yTB"/>
+                <constraint firstAttribute="bottom" secondItem="OPD-GH-ANO" secondAttribute="bottom" id="gsH-E3-Ap6"/>
+                <constraint firstItem="fRg-2U-AYc" firstAttribute="leading" secondItem="OPD-GH-ANO" secondAttribute="leading" id="iz5-cp-zcg"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <point key="canvasLocation" x="35.5" y="110.5"/>
+        </view>
+        <panGestureRecognizer minimumNumberOfTouches="1" id="x4f-lT-7oE">
+            <connections>
+                <action selector="handlePanWithRecognizer:" destination="fRg-2U-AYc" id="oiz-qW-dsb"/>
+            </connections>
+        </panGestureRecognizer>
+    </objects>
+</document>

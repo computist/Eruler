@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalculationViewController" customModule="AccTest" customModuleProvider="target">
+            <connections>
+                <outlet property="lengthLabel" destination="26e-Zn-wEJ" id="rUs-iI-6j2"/>
+                <outlet property="mLabel" destination="AnW-CK-ep4" id="x8V-mS-shy"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Displacement" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26e-Zn-wEJ">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="oXe-HA-mJX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Measurement" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnW-CK-ep4">
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="26e-Zn-wEJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0V9-x9-iwZ"/>
+                <constraint firstItem="AnW-CK-ep4" firstAttribute="trailing" secondItem="26e-Zn-wEJ" secondAttribute="trailing" id="Abg-zK-vXK"/>
+                <constraint firstItem="26e-Zn-wEJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="219" id="YYS-fv-QtE"/>
+                <constraint firstAttribute="bottom" secondItem="AnW-CK-ep4" secondAttribute="bottom" constant="239" id="mIT-Zj-D9R"/>
+                <constraint firstItem="AnW-CK-ep4" firstAttribute="leading" secondItem="26e-Zn-wEJ" secondAttribute="leading" id="sx6-5z-KRu"/>
+                <constraint firstItem="26e-Zn-wEJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="wRp-k6-utG"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="96.5"/>
+        </view>
+    </objects>
+</document>
