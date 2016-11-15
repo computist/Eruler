@@ -12,15 +12,16 @@ import CoreMotion
 class Displacement: NSObject {
     let Manager = CMMotionManager()
     
-//    let gxSmoother = Smoother(length: 10)
-//    let gySmoother = Smoother(length: 10)
-//    let gzSmoother = Smoother(length: 10)
+    let gxSmoother = Smoother(length: 10)
+    let gySmoother = Smoother(length: 10)
+    let gzSmoother = Smoother(length: 10)
     
     let axSmoother = Smoother(length: 10)
     let aySmoother = Smoother(length: 10)
     let azSmoother = Smoother(length: 10)
     
     var started: Bool = false
+    var first: Bool = false
     var dx: Double = 0.0
     var vx: Double = 0.0
     var vy: Double = 0.0
@@ -30,6 +31,13 @@ class Displacement: NSObject {
     var vyData:[Double] = []
     var vzData:[Double] = []
     
+    var gx1: Double = 0.0
+    var gy1: Double = 0.0
+    var gz1: Double = 0.0
+    
+    var gx2: Double = 0.0
+    var gy2: Double = 0.0
+    var gz2: Double = 0.0
     func computeDistance(data: [Double]) -> Double? {
         var data = data
         let curveFactor = 1.001
@@ -107,9 +115,36 @@ class Displacement: NSObject {
                 deviceManager, error in
                 //Do stuffs with deviceManager or with error
                 if (deviceManager != nil) {
-                    //                self.gxSmoother.updateValue(value: deviceManager!.gravity.x)
-                    //                self.gySmoother.updateValue(value: deviceManager!.gravity.y)
-                    //                self.gzSmoother.updateValue(value: deviceManager!.gravity.z)
+                    if(!self.first){
+                        self.gx1 = deviceManager!.gravity.x
+                        self.gy1 = deviceManager!.gravity.y
+                        self.gz1 = deviceManager!.gravity.z
+                        self.first = !self.first
+                        //self.cross.gx1 = self.measure.gx1//
+                        //self.cross.gy1 = self.measure.gy1//
+                        //self.cross.gz1 = self.measure.gz1//
+                    }
+                    print("self\(self.gx1)")
+                    print(deviceManager!.gravity.x)
+                    
+                    self.gxSmoother.updateValue(value: deviceManager!.gravity.x)
+                    self.gySmoother.updateValue(value: deviceManager!.gravity.y)
+                    self.gzSmoother.updateValue(value: deviceManager!.gravity.z)
+                    
+                    self.gx2 = deviceManager!.gravity.x
+                    self.gy2 = deviceManager!.gravity.y
+                    self.gz2 = deviceManager!.gravity.z
+                    
+                    
+//                    self.cross.gx2 = self.measure.gx2//
+//                    self.cross.gy2 = self.measure.gy2//
+//                    self.cross.gz2 = self.measure.gz2//
+                    
+                    //self.gx2 = self.gxSmoother.getLastValue()
+                    //self.gy2 = self.gySmoother.getLastValue()
+                    //self.gz2 = self.gzSmoother.getLastValue()
+                    
+                    print("gxSmoother\(self.gx2)")
                     
                     self.axSmoother.updateValue(value: deviceManager!.userAcceleration.x)
                     self.aySmoother.updateValue(value: deviceManager!.userAcceleration.y)

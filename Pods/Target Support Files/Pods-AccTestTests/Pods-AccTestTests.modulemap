@@ -1,6 +1,0 @@
-framework module Pods_AccTestTests {
-  umbrella header "Pods-AccTestTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

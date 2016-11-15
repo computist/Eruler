@@ -9,9 +9,12 @@
 import UIKit
 import CameraManager
 
+
 class MainCameraViewController: UIViewController {
     let cameraManager = CameraManager()
-
+    
+    @IBOutlet weak var cross: crossView!
+    
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var clickButton: UIButton!
     @IBOutlet weak var previewView: UIView!
@@ -20,6 +23,7 @@ class MainCameraViewController: UIViewController {
     
     var image1: UIImage? = nil
     var image2: UIImage? = nil
+    //var crossStart: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +41,7 @@ class MainCameraViewController: UIViewController {
     @IBAction func measureClick(_ sender: UIButton) {
         if (measure.isStarted()) {
             // end
-            
+            //crossStart = !crossStart
             cameraManager.capturePictureWithCompletion({ (image, error) -> Void in
                 self.image2 = image
                 
@@ -59,8 +63,17 @@ class MainCameraViewController: UIViewController {
                 self.measure.start()
                 self.distanceLabel.text = ""
                 self.clickButton.setTitle("Stop", for: .normal)
+                self.cross.gx1 = self.measure.gx1//
+                self.cross.gy1 = self.measure.gy1//
+                self.cross.gz1 = self.measure.gz1//
+                
             })
+        
+                self.cross.gx2 = self.measure.gx2//
+                self.cross.gy2 = self.measure.gy2//
+                self.cross.gz2 = self.measure.gz2//
         }
+        
     }
     
     override var prefersStatusBarHidden: Bool {
