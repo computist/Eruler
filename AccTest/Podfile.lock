@@ -1,12 +1,15 @@
 PODS:
   - CameraManager (3.0.0)
+  - iOS-MagnifyingGlass (0.0.2)
 
 DEPENDENCIES:
   - CameraManager (~> 3.0)
+  - iOS-MagnifyingGlass (~> 0.0)
 
 SPEC CHECKSUMS:
   CameraManager: 8b92bc0ab51b598d9a4c01998bc9f1efb9b681bf
+  iOS-MagnifyingGlass: b11b7d3e8be7de22c85f0edcaa75538bdf0827dc
 
-PODFILE CHECKSUM: 8c1cc2c438b179d9271e9f9409e6fcfd01f9902f
+PODFILE CHECKSUM: 7798bb2005fa70e12199728e31f8065c60445b24
 
 COCOAPODS: 1.1.0.rc.2

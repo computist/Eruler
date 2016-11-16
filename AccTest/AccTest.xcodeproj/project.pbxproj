@@ -23,7 +23,7 @@
 		9D799BE01DB3366100528CB4 /* ShowImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D799BDE1DB3366100528CB4 /* ShowImagesViewController.swift */; };
 		9D799BE11DB3366100528CB4 /* ShowImagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D799BDF1DB3366100528CB4 /* ShowImagesViewController.xib */; };
 		9D799BE31DB3402300528CB4 /* DisplayImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D799BE21DB3402200528CB4 /* DisplayImageView.swift */; };
-		9DBD11191DDAA1CB005BD0DD /* crossView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBD11181DDAA1CB005BD0DD /* crossView.swift */; };
+		9DBD11191DDAA1CB005BD0DD /* CrossView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBD11181DDAA1CB005BD0DD /* CrossView.swift */; };
 		9DC592A21DA9FE5B00EFDA72 /* Smoother.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC592A11DA9FE5B00EFDA72 /* Smoother.swift */; };
 		9DDD50241DADC09E00325948 /* MainCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD50231DADC09E00325948 /* MainCameraViewController.swift */; };
 		CAD7A2EB209641CDAA04AAE1 /* Pods_AccTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6993525D9FE0D216A8A127 /* Pods_AccTestUITests.framework */; };
@@ -75,7 +75,7 @@
 		9D799BDE1DB3366100528CB4 /* ShowImagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowImagesViewController.swift; sourceTree = "<group>"; };
 		9D799BDF1DB3366100528CB4 /* ShowImagesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowImagesViewController.xib; sourceTree = "<group>"; };
 		9D799BE21DB3402200528CB4 /* DisplayImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayImageView.swift; sourceTree = "<group>"; };
-		9DBD11181DDAA1CB005BD0DD /* crossView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = crossView.swift; sourceTree = "<group>"; };
+		9DBD11181DDAA1CB005BD0DD /* CrossView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossView.swift; sourceTree = "<group>"; };
 		9DC592A11DA9FE5B00EFDA72 /* Smoother.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Smoother.swift; sourceTree = "<group>"; };
 		9DDD50231DADC09E00325948 /* MainCameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCameraViewController.swift; sourceTree = "<group>"; };
 		EB8852DFE8E1C4910F4207C8 /* Pods-AccTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccTestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AccTestTests/Pods-AccTestTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -151,8 +151,8 @@
 				9D4832851DA738E900BD6DF7 /* ViewController.swift */,
 				9D246CCC1DAB62FE003D95BB /* KalmanFilter.swift */,
 				9D4832871DA738E900BD6DF7 /* Main.storyboard */,
+				9DBD11181DDAA1CB005BD0DD /* CrossView.swift */,
 				9D799BDE1DB3366100528CB4 /* ShowImagesViewController.swift */,
-				9DBD11181DDAA1CB005BD0DD /* crossView.swift */,
 				9D799BDF1DB3366100528CB4 /* ShowImagesViewController.xib */,
 				9D622E1F1DC57805005AC33F /* CalculationViewController.swift */,
 				9D622E201DC57805005AC33F /* CalculationViewController.xib */,
@@ -486,7 +486,7 @@
 				9D622E211DC57805005AC33F /* CalculationViewController.swift in Sources */,
 				9DDD50241DADC09E00325948 /* MainCameraViewController.swift in Sources */,
 				9D799BE31DB3402300528CB4 /* DisplayImageView.swift in Sources */,
-				9DBD11191DDAA1CB005BD0DD /* crossView.swift in Sources */,
+				9DBD11191DDAA1CB005BD0DD /* CrossView.swift in Sources */,
 				9D799BDD1DB31D7400528CB4 /* Displacement.swift in Sources */,
 				9D246CCD1DAB62FE003D95BB /* KalmanFilter.swift in Sources */,
 			);

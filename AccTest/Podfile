@@ -7,6 +7,7 @@ target 'AccTest' do
 
   # Pods for AccTest
   pod 'CameraManager', '~> 3.0'
+  pod 'iOS-MagnifyingGlass', '~> 0.0'
 
   target 'AccTestTests' do
     inherit! :search_paths

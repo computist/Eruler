@@ -9,17 +9,16 @@
 import UIKit
 import CameraManager
 
+let measure = Displacement()
 
 class MainCameraViewController: UIViewController {
     let cameraManager = CameraManager()
     
-    @IBOutlet weak var cross: crossView!
+    @IBOutlet weak var cross: CrossView!
     
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var clickButton: UIButton!
     @IBOutlet weak var previewView: UIView!
-    
-    let measure = Displacement()
     
     var image1: UIImage? = nil
     var image2: UIImage? = nil
@@ -34,9 +33,7 @@ class MainCameraViewController: UIViewController {
         cameraManager.cameraOutputQuality = .high
         cameraManager.writeFilesToPhoneLibrary = false
         cameraManager.flashMode = .off
-//        cameraManager.capturePictureWithCompletion({ (image, error) -> Void in
-//            print("hi")
-//        })
+        measure.cv = cross
     }
     @IBAction func measureClick(_ sender: UIButton) {
         if (measure.isStarted()) {
@@ -46,7 +43,7 @@ class MainCameraViewController: UIViewController {
                 self.image2 = image
                 
                 var result: Double = 0.0
-                result = self.measure.end()
+                result = measure.end()
                 self.distanceLabel.text = "\(result)"
                 self.clickButton.setTitle("Start", for: .normal)
                 
@@ -60,18 +57,11 @@ class MainCameraViewController: UIViewController {
             // start
             cameraManager.capturePictureWithCompletion({ (image, error) -> Void in
                 self.image1 = image
-                self.measure.start()
+                measure.start()
                 self.distanceLabel.text = ""
                 self.clickButton.setTitle("Stop", for: .normal)
-                self.cross.gx1 = self.measure.gx1//
-                self.cross.gy1 = self.measure.gy1//
-                self.cross.gz1 = self.measure.gz1//
                 
             })
-        
-                self.cross.gx2 = self.measure.gx2//
-                self.cross.gy2 = self.measure.gy2//
-                self.cross.gz2 = self.measure.gz2//
         }
         
     }

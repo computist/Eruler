@@ -85,7 +85,9 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/CameraManager/CameraManager.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/iOS-MagnifyingGlass/iOS_MagnifyingGlass.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/CameraManager/CameraManager.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/iOS-MagnifyingGlass/iOS_MagnifyingGlass.framework"
 fi

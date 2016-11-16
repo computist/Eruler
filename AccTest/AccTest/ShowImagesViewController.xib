@@ -12,7 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShowImagesViewController" customModule="AccTest" customModuleProvider="target">
             <connections>
                 <outlet property="displayLine" destination="fRg-2U-AYc" id="EEh-4N-xjA"/>
-                <outlet property="imageView" destination="OPD-GH-ANO" id="S3h-Hd-T7J"/>
+                <outlet property="imageView" destination="DbV-AG-QHC" id="NDy-zM-LJ3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,16 +21,16 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OPD-GH-ANO">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DbV-AG-QHC">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fRg-2U-AYc" customClass="DisplayImageView" customModule="AccTest" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WqO-pL-23m">
-                            <rect key="frame" x="164.5" y="559" width="46" height="30"/>
+                            <rect key="frame" x="165" y="-108" width="46" height="30"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="46" id="sEE-5N-e30"/>
+                                <constraint firstAttribute="width" constant="46" id="tNp-ml-8Uq"/>
                             </constraints>
                             <state key="normal" title="OK"/>
                             <connections>
@@ -40,33 +40,25 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="WqO-pL-23m" secondAttribute="bottom" constant="78" id="DC7-Sg-qYN"/>
-                        <constraint firstItem="WqO-pL-23m" firstAttribute="centerX" secondItem="fRg-2U-AYc" secondAttribute="centerX" id="qec-ns-Vlo"/>
+                        <constraint firstItem="WqO-pL-23m" firstAttribute="top" secondItem="fRg-2U-AYc" secondAttribute="top" constant="-108" id="2G7-az-okr"/>
+                        <constraint firstItem="WqO-pL-23m" firstAttribute="centerX" secondItem="fRg-2U-AYc" secondAttribute="centerX" id="rm7-cL-mX7"/>
                     </constraints>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="x4f-lT-7oE" appends="YES" id="jcH-qR-88R"/>
-                    </connections>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="OPD-GH-ANO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="022-wK-Qy2"/>
-                <constraint firstItem="fRg-2U-AYc" firstAttribute="bottom" secondItem="OPD-GH-ANO" secondAttribute="bottom" id="3bY-Ff-E7W"/>
-                <constraint firstAttribute="trailing" secondItem="OPD-GH-ANO" secondAttribute="trailing" id="5Bq-1G-Hhq"/>
-                <constraint firstItem="fRg-2U-AYc" firstAttribute="trailing" secondItem="OPD-GH-ANO" secondAttribute="trailing" id="9n5-iZ-fhk"/>
-                <constraint firstItem="OPD-GH-ANO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="AoW-2U-HMe"/>
-                <constraint firstItem="fRg-2U-AYc" firstAttribute="top" secondItem="OPD-GH-ANO" secondAttribute="top" id="HRN-yx-yTB"/>
-                <constraint firstAttribute="bottom" secondItem="OPD-GH-ANO" secondAttribute="bottom" id="gsH-E3-Ap6"/>
-                <constraint firstItem="fRg-2U-AYc" firstAttribute="leading" secondItem="OPD-GH-ANO" secondAttribute="leading" id="iz5-cp-zcg"/>
+                <constraint firstItem="DbV-AG-QHC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="03H-Lf-M7H"/>
+                <constraint firstItem="fRg-2U-AYc" firstAttribute="bottom" secondItem="DbV-AG-QHC" secondAttribute="bottom" id="5YH-dh-VTN"/>
+                <constraint firstItem="fRg-2U-AYc" firstAttribute="leading" secondItem="DbV-AG-QHC" secondAttribute="leading" id="gUW-ae-Rbe"/>
+                <constraint firstItem="fRg-2U-AYc" firstAttribute="top" secondItem="DbV-AG-QHC" secondAttribute="top" id="nbR-bf-fHH"/>
+                <constraint firstItem="DbV-AG-QHC" firstAttribute="trailing" secondItem="fRg-2U-AYc" secondAttribute="trailing" id="t1I-0T-3Q4"/>
+                <constraint firstAttribute="trailing" secondItem="fRg-2U-AYc" secondAttribute="trailing" id="wQK-Pz-lf6"/>
+                <constraint firstItem="DbV-AG-QHC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xKC-a5-tZh"/>
+                <constraint firstAttribute="bottom" secondItem="fRg-2U-AYc" secondAttribute="bottom" id="zuu-QB-hCc"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <point key="canvasLocation" x="35.5" y="110.5"/>
         </view>
-        <panGestureRecognizer minimumNumberOfTouches="1" id="x4f-lT-7oE">
-            <connections>
-                <action selector="handlePanWithRecognizer:" destination="fRg-2U-AYc" id="oiz-qW-dsb"/>
-            </connections>
-        </panGestureRecognizer>
     </objects>
 </document>

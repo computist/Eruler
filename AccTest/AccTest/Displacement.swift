@@ -12,6 +12,8 @@ import CoreMotion
 class Displacement: NSObject {
     let Manager = CMMotionManager()
     
+    var cv: CrossView? = nil
+    
     let gxSmoother = Smoother(length: 10)
     let gySmoother = Smoother(length: 10)
     let gzSmoother = Smoother(length: 10)
@@ -120,31 +122,16 @@ class Displacement: NSObject {
                         self.gy1 = deviceManager!.gravity.y
                         self.gz1 = deviceManager!.gravity.z
                         self.first = !self.first
-                        //self.cross.gx1 = self.measure.gx1//
-                        //self.cross.gy1 = self.measure.gy1//
-                        //self.cross.gz1 = self.measure.gz1//
+                    } else {
+                        self.gx2 = deviceManager!.gravity.x
+                        self.gy2 = deviceManager!.gravity.y
+                        self.gz2 = deviceManager!.gravity.z
+                        self.cv?.setNeedsDisplay()
                     }
-                    print("self\(self.gx1)")
-                    print(deviceManager!.gravity.x)
                     
                     self.gxSmoother.updateValue(value: deviceManager!.gravity.x)
                     self.gySmoother.updateValue(value: deviceManager!.gravity.y)
                     self.gzSmoother.updateValue(value: deviceManager!.gravity.z)
-                    
-                    self.gx2 = deviceManager!.gravity.x
-                    self.gy2 = deviceManager!.gravity.y
-                    self.gz2 = deviceManager!.gravity.z
-                    
-                    
-//                    self.cross.gx2 = self.measure.gx2//
-//                    self.cross.gy2 = self.measure.gy2//
-//                    self.cross.gz2 = self.measure.gz2//
-                    
-                    //self.gx2 = self.gxSmoother.getLastValue()
-                    //self.gy2 = self.gySmoother.getLastValue()
-                    //self.gz2 = self.gzSmoother.getLastValue()
-                    
-                    print("gxSmoother\(self.gx2)")
                     
                     self.axSmoother.updateValue(value: deviceManager!.userAcceleration.x)
                     self.aySmoother.updateValue(value: deviceManager!.userAcceleration.y)

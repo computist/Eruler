@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -105,46 +106,44 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XiD-YK-2Zd" customClass="CrossView" customModule="AccTest" customModuleProvider="target">
+                                <rect key="frame" x="137" y="283" width="100" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="1MI-U8-fEq"/>
+                                    <constraint firstAttribute="width" secondItem="XiD-YK-2Zd" secondAttribute="height" multiplier="1:1" id="Apc-pd-Yn0"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6CM-IV-7Zs">
-                                <rect key="frame" x="8" y="0.0" width="30" height="21"/>
+                                <rect key="frame" x="172" y="500" width="30" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XiD-YK-2Zd" customClass="crossView" customModule="AccTest" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAK-hD-Wsr">
-                                        <rect key="frame" x="164" y="509" width="46" height="48"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="77V-NG-hg0"/>
-                                            <constraint firstAttribute="width" constant="46" id="z3q-nz-cdS"/>
-                                        </constraints>
-                                        <state key="normal" title="Click"/>
-                                        <connections>
-                                            <action selector="measureClick:" destination="7gG-xp-Wap" eventType="touchUpInside" id="BH7-p2-w3f"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAK-hD-Wsr">
+                                <rect key="frame" x="164" y="551" width="46" height="48"/>
                                 <constraints>
-                                    <constraint firstItem="kAK-hD-Wsr" firstAttribute="centerX" secondItem="XiD-YK-2Zd" secondAttribute="centerX" id="u3z-2e-0b7"/>
-                                    <constraint firstAttribute="bottom" secondItem="kAK-hD-Wsr" secondAttribute="bottom" constant="110" id="xmx-SO-4Fk"/>
+                                    <constraint firstAttribute="width" constant="46" id="6gP-uF-gNc"/>
+                                    <constraint firstAttribute="height" constant="48" id="XFf-Nb-QC2"/>
                                 </constraints>
-                            </view>
+                                <state key="normal" title="Click"/>
+                                <connections>
+                                    <action selector="measureClick:" destination="7gG-xp-Wap" eventType="touchUpInside" id="BH7-p2-w3f"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="mQE-5i-Xgg" secondAttribute="trailing" id="3OB-C2-KXm"/>
-                            <constraint firstItem="mQE-5i-Xgg" firstAttribute="top" secondItem="hhZ-ea-FcJ" secondAttribute="bottom" id="4FT-i0-NOD"/>
-                            <constraint firstItem="XiD-YK-2Zd" firstAttribute="bottom" secondItem="FQt-BY-6pE" secondAttribute="top" id="AyD-98-Zzu"/>
-                            <constraint firstItem="XiD-YK-2Zd" firstAttribute="top" secondItem="mQE-5i-Xgg" secondAttribute="top" id="G3u-Et-Y9W"/>
-                            <constraint firstItem="XiD-YK-2Zd" firstAttribute="trailing" secondItem="mQE-5i-Xgg" secondAttribute="trailing" id="HIm-L0-xIC"/>
-                            <constraint firstItem="XiD-YK-2Zd" firstAttribute="top" secondItem="6CM-IV-7Zs" secondAttribute="top" id="JcR-Pf-jVV"/>
-                            <constraint firstItem="XiD-YK-2Zd" firstAttribute="leading" secondItem="mQE-5i-Xgg" secondAttribute="leading" id="KT9-ki-vOZ"/>
-                            <constraint firstItem="mQE-5i-Xgg" firstAttribute="bottom" secondItem="FQt-BY-6pE" secondAttribute="top" id="bTx-oA-JC7"/>
-                            <constraint firstItem="mQE-5i-Xgg" firstAttribute="leading" secondItem="Wez-H4-TJ4" secondAttribute="leading" id="cXx-a7-FpJ"/>
-                            <constraint firstItem="6CM-IV-7Zs" firstAttribute="leading" secondItem="Wez-H4-TJ4" secondAttribute="leadingMargin" constant="-8" id="tbJ-Xe-CvP"/>
+                            <constraint firstItem="mQE-5i-Xgg" firstAttribute="top" secondItem="hhZ-ea-FcJ" secondAttribute="bottom" id="0rm-k4-Aja"/>
+                            <constraint firstItem="mQE-5i-Xgg" firstAttribute="centerX" secondItem="6CM-IV-7Zs" secondAttribute="centerX" id="BhB-pB-5Xl"/>
+                            <constraint firstItem="kAK-hD-Wsr" firstAttribute="top" secondItem="6CM-IV-7Zs" secondAttribute="bottom" constant="30" id="IRK-nX-qyn"/>
+                            <constraint firstItem="XiD-YK-2Zd" firstAttribute="centerX" secondItem="6CM-IV-7Zs" secondAttribute="centerX" id="LiW-CX-knC"/>
+                            <constraint firstItem="mQE-5i-Xgg" firstAttribute="leading" secondItem="Wez-H4-TJ4" secondAttribute="leading" id="Qjr-2o-b81"/>
+                            <constraint firstItem="FQt-BY-6pE" firstAttribute="top" secondItem="kAK-hD-Wsr" secondAttribute="bottom" constant="68" id="Sjs-Fn-lFO"/>
+                            <constraint firstItem="mQE-5i-Xgg" firstAttribute="bottom" secondItem="FQt-BY-6pE" secondAttribute="top" id="Yrd-xh-We4"/>
+                            <constraint firstItem="mQE-5i-Xgg" firstAttribute="centerY" secondItem="XiD-YK-2Zd" secondAttribute="centerY" id="oKF-qr-MjS"/>
+                            <constraint firstItem="6CM-IV-7Zs" firstAttribute="centerX" secondItem="kAK-hD-Wsr" secondAttribute="centerX" id="tRd-xx-vWt"/>
+                            <constraint firstAttribute="trailing" secondItem="mQE-5i-Xgg" secondAttribute="trailing" id="xGI-sD-mat"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
