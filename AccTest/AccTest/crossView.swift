@@ -15,7 +15,7 @@ class CrossView: UIView {
 //    var gx2: Double = 0.0
 //    var gy2: Double = 0.0
 //    var gz2: Double = 0.0
-    let threshold = 0.025
+    let threshold = 1.0
     
     
     var l1x1: CGFloat = 0
@@ -27,6 +27,10 @@ class CrossView: UIView {
     var l2y1: CGFloat = 0
     var l2x2: CGFloat = 50
     var l2y2: CGFloat = 100
+    
+    var needCapture: Bool = false
+    var parent: MainCameraViewController? = nil
+    
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     
@@ -45,8 +49,12 @@ class CrossView: UIView {
         aPath.close()
         bPath.close()
         
-        if (abs(measure.gx1 - measure.gx2) < threshold && abs(measure.gy1 - measure.gy2) < threshold && abs(measure.gz1 - measure.gz2) < threshold){
+        if (/*abs(measure.gx1 - measure.gx2) < threshold && */abs(measure.gy1 - measure.gy2) < threshold /*&& abs(measure.gz1 - measure.gz2) < threshold*/){
             UIColor.green.set()
+            if (needCapture) {
+                needCapture = false
+                parent?.captureSecond()
+            }
         } else {
             UIColor.red.set()
         }
@@ -56,8 +64,14 @@ class CrossView: UIView {
         aPath.fill()
         bPath.fill()
         
-        let centerX = 50 + (measure.gx2 - measure.gx1) * 50
-        let centerY = 50 + (measure.gy2 - measure.gy1) * 50
+        let cx = abs(abs(measure.gx2-measure.gx1)-360) < abs(measure.gx2-measure.gx1) ? measure.gx2 / abs(measure.gx2) * (abs(measure.gx2-measure.gx1) - 360) : measure.gx2 - measure.gx1;
+        
+        let cy = abs(abs(measure.gy2-measure.gy1)-360) < abs(measure.gy2-measure.gy1) ? measure.gy2 / abs(measure.gy2) * (abs(measure.gy2-measure.gy1) - 360) : measure.gy2 - measure.gy1;
+        
+//        print("\(measure.gy1) \(measure.gy2) \(cy)")
+        
+        let centerX = 50 + cy / 180 * 50
+        let centerY = 50 + cy / 180 * 50
         
         let circlePath = UIBezierPath(arcCenter: CGPoint(x: centerX,y: centerY), radius: CGFloat(5), startAngle: CGFloat(0), endAngle:CGFloat(M_PI * 2), clockwise: true)
         circlePath.stroke()

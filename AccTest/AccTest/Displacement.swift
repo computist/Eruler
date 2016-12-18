@@ -40,6 +40,10 @@ class Displacement: NSObject {
     var gx2: Double = 0.0
     var gy2: Double = 0.0
     var gz2: Double = 0.0
+    
+    var needVUpdate = false
+    
+    var result: Double = 0.0
     func computeDistance(data: [Double]) -> Double? {
         var data = data
         let curveFactor = 1.001
@@ -49,7 +53,7 @@ class Displacement: NSObject {
         let min = data.min()!
         
         
-        // TODO if min > 0
+        // min < 0
         let negative: Double = 1
         let diff = -min
         
@@ -86,11 +90,12 @@ class Displacement: NSObject {
         return result * negative
     }
     
+    
     func end() -> Double {
-        var result: Double = 0.0
         if (started) {
             started = !started
-            Manager.stopDeviceMotionUpdates()
+//            Manager.stopDeviceMotionUpdates()
+            needVUpdate = false
             
             if let computeValue = computeDistance(data: vyData) {
                 result = computeValue * 9.81 * 100.0
@@ -110,6 +115,8 @@ class Displacement: NSObject {
     
     func start() {
         if (!started) {
+            result = 0.0
+            needVUpdate = true
             started = !started
             Manager.startDeviceMotionUpdates(using: .xTrueNorthZVertical)
             Manager.deviceMotionUpdateInterval = dt
@@ -118,33 +125,38 @@ class Displacement: NSObject {
                 //Do stuffs with deviceManager or with error
                 if (deviceManager != nil) {
                     if(!self.first){
-                        self.gx1 = deviceManager!.gravity.x
-                        self.gy1 = deviceManager!.gravity.y
-                        self.gz1 = deviceManager!.gravity.z
+                        self.gx1 = deviceManager!.attitude.roll*180/M_PI//  .gravity.x
+                        self.gy1 = deviceManager!.attitude.pitch*180/M_PI//.gravity.y
+                        self.gz1 = deviceManager!.attitude.yaw*180/M_PI//gravity.z
+                        
+//                        print("\(self.gx1), \(self.gy1), \(self.gz1)")
                         self.first = !self.first
                     } else {
-                        self.gx2 = deviceManager!.gravity.x
-                        self.gy2 = deviceManager!.gravity.y
-                        self.gz2 = deviceManager!.gravity.z
+                        self.gx2 = deviceManager!.attitude.roll*180/M_PI//  .gravity.x
+                        self.gy2 = deviceManager!.attitude.pitch*180/M_PI//.gravity.y
+                        self.gz2 = deviceManager!.attitude.yaw*180/M_PI//gravity.z
+//                        print("\(self.gx2), \(self.gy2), \(self.gz2)")
                         self.cv?.setNeedsDisplay()
                     }
+                    if (self.needVUpdate) {
+                        self.gxSmoother.updateValue(value: deviceManager!.gravity.x)
+                        self.gySmoother.updateValue(value: deviceManager!.gravity.y)
+                        self.gzSmoother.updateValue(value: deviceManager!.gravity.z)
+                        
+                        self.axSmoother.updateValue(value: deviceManager!.userAcceleration.x)
+                        self.aySmoother.updateValue(value: deviceManager!.userAcceleration.y)
+                        self.azSmoother.updateValue(value: deviceManager!.userAcceleration.z)
+                        
+                        self.vx+=(self.axSmoother.getLastValue() + self.axSmoother.getValue())/2.0*self.dt
+                        self.vxData.append(self.vx)
+                        
+                        self.vy+=(self.aySmoother.getLastValue() + self.aySmoother.getValue())/2.0*self.dt
+                        self.vyData.append(self.vy)
+                        
+                        self.vz+=(self.azSmoother.getLastValue() + self.axSmoother.getValue())/2.0*self.dt
+                        self.vzData.append(self.vz)
+                    }
                     
-                    self.gxSmoother.updateValue(value: deviceManager!.gravity.x)
-                    self.gySmoother.updateValue(value: deviceManager!.gravity.y)
-                    self.gzSmoother.updateValue(value: deviceManager!.gravity.z)
-                    
-                    self.axSmoother.updateValue(value: deviceManager!.userAcceleration.x)
-                    self.aySmoother.updateValue(value: deviceManager!.userAcceleration.y)
-                    self.azSmoother.updateValue(value: deviceManager!.userAcceleration.z)
-                    
-                    self.vx+=(self.axSmoother.getLastValue() + self.axSmoother.getValue())/2.0*self.dt
-                    self.vxData.append(self.vx)
-                    
-                    self.vy+=(self.aySmoother.getLastValue() + self.aySmoother.getValue())/2.0*self.dt
-                    self.vyData.append(self.vy)
-                    
-                    self.vz+=(self.azSmoother.getLastValue() + self.axSmoother.getValue())/2.0*self.dt
-                    self.vzData.append(self.vz)
                 }
             })
         }

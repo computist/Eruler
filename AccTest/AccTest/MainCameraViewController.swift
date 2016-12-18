@@ -34,25 +34,35 @@ class MainCameraViewController: UIViewController {
         cameraManager.writeFilesToPhoneLibrary = false
         cameraManager.flashMode = .off
         measure.cv = cross
+        
+        cross.parent = self
+    }
+    
+    func captureSecond() {
+        
+        measure.Manager.stopDeviceMotionUpdates()
+        
+        cameraManager.capturePictureWithCompletion({ (image, error) -> Void in
+            self.image2 = image
+            
+            self.clickButton.setTitle("Start", for: .normal)
+            
+            let imageShowController = ShowImagesViewController()
+            imageShowController.image1 = self.image1
+            imageShowController.image2 = self.image2
+            imageShowController.displacement = measure.end()
+            self.present(imageShowController, animated: true, completion: nil)
+        })
     }
     @IBAction func measureClick(_ sender: UIButton) {
         if (measure.isStarted()) {
             // end
             //crossStart = !crossStart
-            cameraManager.capturePictureWithCompletion({ (image, error) -> Void in
-                self.image2 = image
-                
-                var result: Double = 0.0
-                result = measure.end()
-                self.distanceLabel.text = "\(result)"
-                self.clickButton.setTitle("Start", for: .normal)
-                
-                let imageShowController = ShowImagesViewController()
-                imageShowController.image1 = self.image1
-                imageShowController.image2 = self.image2
-                imageShowController.displacement = result
-                self.present(imageShowController, animated: true, completion: nil)
-            })
+            var result: Double = 0.0
+            result = measure.end()
+            self.distanceLabel.text = "\(result)"
+            self.clickButton.setTitle("Waiting", for: .normal)
+            cross.needCapture = true
         } else {
             // start
             cameraManager.capturePictureWithCompletion({ (image, error) -> Void in

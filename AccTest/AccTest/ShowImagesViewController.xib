@@ -28,9 +28,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WqO-pL-23m">
-                            <rect key="frame" x="165" y="-108" width="46" height="30"/>
+                            <rect key="frame" x="165" y="500" width="46" height="33"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="46" id="tNp-ml-8Uq"/>
+                                <constraint firstAttribute="height" constant="33" id="bfa-ha-sUe"/>
+                                <constraint firstAttribute="width" constant="46" id="ddk-cm-psp"/>
                             </constraints>
                             <state key="normal" title="OK"/>
                             <connections>
@@ -40,8 +41,8 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="WqO-pL-23m" firstAttribute="top" secondItem="fRg-2U-AYc" secondAttribute="top" constant="-108" id="2G7-az-okr"/>
-                        <constraint firstItem="WqO-pL-23m" firstAttribute="centerX" secondItem="fRg-2U-AYc" secondAttribute="centerX" id="rm7-cL-mX7"/>
+                        <constraint firstItem="WqO-pL-23m" firstAttribute="centerX" secondItem="fRg-2U-AYc" secondAttribute="centerX" id="BCD-B9-odv"/>
+                        <constraint firstAttribute="bottom" secondItem="WqO-pL-23m" secondAttribute="bottom" constant="134" id="qwh-W4-wMN"/>
                     </constraints>
                 </view>
             </subviews>
